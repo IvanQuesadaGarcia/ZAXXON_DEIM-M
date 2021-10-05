@@ -47,7 +47,7 @@ public class NaveMove : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * desplH * desplSpeed, Space.World);
         transform.Translate(Vector3.up * Time.deltaTime * desplV * desplSpeed, Space.World);
        
-        transform.Rotate(Vector3.back * Time.deltaTime * rot * 100f);
+        transform.Rotate(Vector3.back * Time.deltaTime * desplH * 100f);
 
     }
 }
