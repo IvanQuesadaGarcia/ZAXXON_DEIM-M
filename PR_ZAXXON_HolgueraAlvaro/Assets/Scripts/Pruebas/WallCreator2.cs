@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallCreator : MonoBehaviour
+public class WallCreator2 : MonoBehaviour
 {
 
     //Game object con el prefab
@@ -30,7 +30,6 @@ public class WallCreator : MonoBehaviour
         //Creo el Vector que moverá cada instancia
         Vector3 despl = new Vector3(separacion, desplY, 0f);
 
-
         //Creo un bucle con las filas
         for (int f = 0; f < numFilas; f++)
         {
@@ -39,13 +38,16 @@ public class WallCreator : MonoBehaviour
             //Bucle para instanciar ladrillos
             for (int n = 0; n < numLadrillos; n++)
             {
-                
-                Instantiate(ladrillo, newPos, Quaternion.identity);
+                //Creo un ángulo Quaternion aleatorio
+                int randomAngle = Random.Range(0, 8);
+                randomAngle = randomAngle * 45;
+                Quaternion newRot = Quaternion.Euler(randomAngle, 0f, 0f);
+                Instantiate(ladrillo, newPos, newRot);
                 newPos = newPos + despl;
             }
+
             desplY += separacion;
             newPos = initPos.position + fila;
-
 
             
         }
