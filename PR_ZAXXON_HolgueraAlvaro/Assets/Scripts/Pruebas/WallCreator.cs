@@ -12,23 +12,45 @@ public class WallCreator : MonoBehaviour
     //La separación será variable
     float separacion;
 
+    //Numero de filas y de ladrillos por filas
+    [SerializeField] int numLadrillos = 10;
+    [SerializeField] int numFilas = 5;
+
     // Start is called before the first frame update
     void Start()
     {
 
         separacion = 1.1f;
 
+        //Posición en Y para las filas
+        float desplY = 0f;
+
         //Las posición inicial es la del objeto de referencia
         Vector3 newPos = initPos.position;
-        Vector3 despl = new Vector3(separacion,0f,0f);
+        //Creo el Vector que moverá cada instancia
+        Vector3 despl = new Vector3(separacion, desplY, 0f);
 
-        //Bucle para instanciar ladrillos
-        for(int n = 0; n < 10; n++)
+
+        //Creo un bucle con las filas
+        for (int f = 0; f < numFilas; f++)
         {
+            Vector3 fila = new Vector3(0f, desplY, 0f);
 
-            Instantiate(ladrillo, newPos, Quaternion.identity);
-            newPos = newPos + despl;
+            //Bucle para instanciar ladrillos
+            for (int n = 0; n < numLadrillos; n++)
+            {
+                
+                Instantiate(ladrillo, newPos, Quaternion.identity);
+                newPos = newPos + despl;
+            }
+
+            newPos = initPos.position + fila;
+
+
+            desplY += separacion;
         }
+
+        
         
     }
 

@@ -330,6 +330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ladrillo: {fileID: 4056618088345886024, guid: 1411ea33640f23242826182749a5b3fe, type: 3}
   initPos: {fileID: 1535794728}
+  numLadrillos: 100
+  numFilas: 20
 --- !u!4 &1535794728
 Transform:
   m_ObjectHideFlags: 0
