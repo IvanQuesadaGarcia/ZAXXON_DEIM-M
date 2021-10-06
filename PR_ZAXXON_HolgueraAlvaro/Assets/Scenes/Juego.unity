@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceshipSpeed: 0
+  levelGame: 0
 --- !u!4 &987333747
 Transform:
   m_ObjectHideFlags: 0
@@ -753,8 +754,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf775b994e1f1c40a44e4aac65c6fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obst: {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
   initPos: {fileID: 1500148869}
+  arrayObst:
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 6514319400809863875, guid: ed9764f37c700c14f92ba12aedcac49f, type: 3}
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 6514319400809863875, guid: ed9764f37c700c14f92ba12aedcac49f, type: 3}
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
+  - {fileID: 4056618088345886024, guid: 1411ea33640f23242826182749a5b3fe, type: 3}
 --- !u!4 &1500148869
 Transform:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class ObstaculoMove : MonoBehaviour
         transform.Translate(Vector3.back * Time.deltaTime * speed);
 
         float posZ = transform.position.z;
-        print(posZ);
+        //print(posZ);
 
         if(posZ < -20)
         {
