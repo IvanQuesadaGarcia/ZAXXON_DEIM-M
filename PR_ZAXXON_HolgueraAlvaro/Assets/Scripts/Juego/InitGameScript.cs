@@ -16,7 +16,7 @@ public class InitGameScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spaceshipSpeed = 10f;
+        spaceshipSpeed = 30f;
         levelGame = 1;
     }
 

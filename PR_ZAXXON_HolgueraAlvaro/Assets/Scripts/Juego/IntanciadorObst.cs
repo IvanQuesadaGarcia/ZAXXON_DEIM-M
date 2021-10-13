@@ -13,10 +13,16 @@ public class IntanciadorObst : MonoBehaviour
 
     //Creo un Array que contendrá los diferentes prefabs con obstáculos
     [SerializeField] GameObject[] arrayObst;
+
+
     //Creo una variable que determinará qué obstáculos se instanciarán
     int level;
     //el intervalo para la corrutina, dependerá de la velocidad
     float intervalo;
+    [SerializeField] float distanciaEntreObstaculos;
+
+    //Para calcular el intervalo, necesito saber la velocidad
+    float speed;
 
     //Variable que me permitirá acceder al componente con las variables generales
     InitGameScript initGameScript;
@@ -25,7 +31,10 @@ public class IntanciadorObst : MonoBehaviour
     {
         //Accedo al componente del Game Object. En este ejemplo, lo hago todo en una sola línea
         initGameScript = GameObject.Find("InitGame").GetComponent<InitGameScript>();
-        intervalo = 1f; //El intervalo de momento es fijo, ya cambiará
+
+        distanciaEntreObstaculos = 30f;
+        intervalo = distanciaEntreObstaculos / initGameScript.spaceshipSpeed;
+        print(intervalo);
         //Inicio la Corrutina que instancia los prefabs
         //IMPORTANTE: antes de iniciarla, el intervalo tiene que ser un número válido
         StartCoroutine("CrearObstaculos");
@@ -67,7 +76,7 @@ public class IntanciadorObst : MonoBehaviour
                 //En este caso, el nº aleatorio es entre 0 y la longitud del Array
                 randomNum = Random.Range(0, arrayObst.Length);
             }
-            
+
             /*
             //Método alternativo y básico, sin usar Array
             if(randomNum == 1)
@@ -79,6 +88,11 @@ public class IntanciadorObst : MonoBehaviour
                 obstRandom = obst2;
             }
             */
+
+            //Antes de instanciar calculo el intervalo en basde a la velocidad
+            intervalo =  distanciaEntreObstaculos / initGameScript.spaceshipSpeed;
+            print(intervalo);
+
             //Instancio el prefab aleatorio en la posición calculada
             Instantiate(arrayObst[randomNum], instPos, Quaternion.identity);
 
