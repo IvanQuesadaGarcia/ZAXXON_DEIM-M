@@ -766,6 +766,8 @@ MonoBehaviour:
   - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
   - {fileID: 6514319400809863875, guid: 79358c12f7d983b4ea2c9560ac11a6c4, type: 3}
   - {fileID: 4056618088345886024, guid: 1411ea33640f23242826182749a5b3fe, type: 3}
+  distanciaEntreObstaculos: 0
+  distPrimerObst: 120
 --- !u!4 &1500148869
 Transform:
   m_ObjectHideFlags: 0
@@ -774,7 +776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500148867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 0.6, z: 61.4}
+  m_LocalPosition: {x: -2.7, y: 0.6, z: 300}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
