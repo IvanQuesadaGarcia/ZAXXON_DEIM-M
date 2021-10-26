@@ -28,4 +28,13 @@ public class InitGameScript : MonoBehaviour
             
         }
     }
+
+    //Morirse
+    public void Morir()
+    {
+        print("Me he muerto");
+        spaceshipSpeed = 0f;
+        IntanciadorObst instanciadorObst =  GameObject.Find("InstanciadorObst").GetComponent<IntanciadorObst>();
+        instanciadorObst.SendMessage("Parar");
+    }
 }

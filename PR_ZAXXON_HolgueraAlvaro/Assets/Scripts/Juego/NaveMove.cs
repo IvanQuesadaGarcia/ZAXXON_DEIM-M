@@ -7,6 +7,8 @@ public class NaveMove : MonoBehaviour
     //Movimiento de desplazamiento (H/V)
     [SerializeField] float desplSpeed;
 
+    [SerializeField] GameObject navePrefab;
+
     //Variables para la restricción de movimiento (horizontales y verticales)
     float limiteR = 10;
     float limiteL = -10;
@@ -19,6 +21,7 @@ public class NaveMove : MonoBehaviour
 
     //
     InitGameScript initGameScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,10 +92,12 @@ public class NaveMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //print("Ostia");
+        print("Ostia");
         if(other.gameObject.layer == 6)
         {
-            //initGameScript.spaceshipSpeed = 0f;
+
+            //initGameScript.SendMessage("Morir");
+            navePrefab.SetActive(false);
             //Destroy(gameObject);
             
         }

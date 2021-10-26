@@ -48,6 +48,12 @@ public class IntanciadorObst : MonoBehaviour
 
     }
 
+    public void Parar()
+    {
+        print("Se han parado la corrutina");
+        StopCoroutine("CrearObstaculos");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -123,7 +129,7 @@ public class IntanciadorObst : MonoBehaviour
             Instantiate(arrayObst[randomNum], instPos, Quaternion.identity);
 
 
-            print(arrayObst[randomNum].tag);
+            
             if(arrayObst[randomNum].tag == "pared")
             {
                 haSalidoPared = true;
