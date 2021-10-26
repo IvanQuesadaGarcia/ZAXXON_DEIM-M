@@ -111,7 +111,7 @@ public class IntanciadorObst : MonoBehaviour
 
             if(arrayObst[randomNum].tag == "columna")
             {
-                instPos = new Vector3(Random.Range(-10f, 10f), 0f, initPos.position.z);
+                instPos = new Vector3(Random.Range(-20f, 20f), 0f, initPos.position.z);
             }
             else if(arrayObst[randomNum].tag == "pared")
             {
