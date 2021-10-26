@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6514319400735657061}
   - component: {fileID: 6514319400735657060}
   - component: {fileID: 6514319400735657063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: columna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6514319400751451686}
   - component: {fileID: 6514319400751451681}
   - component: {fileID: 6514319400751451680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cabeza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,9 +204,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6514319400809863873}
   - component: {fileID: 6514319400809863872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Obstaculo1
-  m_TagString: Untagged
+  m_TagString: columna
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6514319402365996052}
   - component: {fileID: 6514319402365996055}
   - component: {fileID: 6514319402365996054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: farola
   m_TagString: Untagged
   m_Icon: {fileID: 0}

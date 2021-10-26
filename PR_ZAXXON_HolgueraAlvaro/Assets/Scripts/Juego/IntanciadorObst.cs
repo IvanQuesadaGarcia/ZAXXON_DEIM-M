@@ -15,6 +15,7 @@ public class IntanciadorObst : MonoBehaviour
     [SerializeField] GameObject[] arrayObst;
 
 
+
     //Creo una variable que determinará qué obstáculos se instanciarán
     int level;
     //el intervalo para la corrutina, dependerá de la velocidad
@@ -56,26 +57,32 @@ public class IntanciadorObst : MonoBehaviour
     //Corrutina que instancia prefabs siguiendo los intervalos
     IEnumerator CrearObstaculos()
     {
+        //Booleana que me dice si ha salido una pared
+        bool haSalidoPared = false;
+        int contadorParedes = 0;
         //GameObject obstRandom;
         while (true)
         {
-            //Creo un Vector3 que indicará la posición de instanciación
-            //El valor X es random, el Z el del objeto de referencia
-            Vector3 instPos = new Vector3(Random.Range(-10f, 10f), 0f, initPos.position.z);
+            
             
             //Creo el número aleatorio para elegir el prefab del Array
             int randomNum;
+
+            
+            //Voctor en el que se instanciar´´a
+            Vector3 instPos = new Vector3(0f, 0f, initPos.position.z);
             //Obtengo el nivel en el que estamos (en cada vuelta de la corrutina)
             level = initGameScript.levelGame;
             //print(level);
             //Según el nivel, instancio unos u otros obstáculos
+            
             if (level == 0)
             {
                 randomNum = 0;
             }
-            else if(level > 0 && level < 4)
+            else if(level > 0 && level < 4 || haSalidoPared == true)
             {
-                randomNum = Random.Range(0, 5);
+                randomNum = Random.Range(0, 2);
             }
             else
             {
@@ -99,8 +106,40 @@ public class IntanciadorObst : MonoBehaviour
             intervalo =  distanciaEntreObstaculos / initGameScript.spaceshipSpeed;
             //print(intervalo);
 
+            //Creo un Vector3 que indicará la posición de instanciación
+            //El valor X es random, el Z el del objeto de referencia
+
+            if(arrayObst[randomNum].tag == "columna")
+            {
+                instPos = new Vector3(Random.Range(-10f, 10f), 0f, initPos.position.z);
+            }
+            else if(arrayObst[randomNum].tag == "pared")
+            {
+                instPos = new Vector3(0f, 0f, initPos.position.z);
+            }
+            
+
             //Instancio el prefab aleatorio en la posición calculada
             Instantiate(arrayObst[randomNum], instPos, Quaternion.identity);
+
+
+            print(arrayObst[randomNum].tag);
+            if(arrayObst[randomNum].tag == "pared")
+            {
+                haSalidoPared = true;
+            }
+
+            if(haSalidoPared)
+            {
+                contadorParedes++;
+            }
+            if(contadorParedes == 5)
+            {
+                haSalidoPared = false;
+                contadorParedes = 0;
+            }
+           
+
 
             yield return new WaitForSeconds(intervalo);
 

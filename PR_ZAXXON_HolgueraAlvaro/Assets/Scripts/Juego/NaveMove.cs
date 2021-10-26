@@ -17,7 +17,8 @@ public class NaveMove : MonoBehaviour
     bool inLimitH = true;
     bool inLimitV = true;
 
-
+    //
+    InitGameScript initGameScript;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class NaveMove : MonoBehaviour
         transform.position = new Vector3(0f, 2.3f, 0f);
         //Le asigno un valor a la velocidad de desplazamiento
         desplSpeed = 10f;
+
+        initGameScript = GameObject.Find("InitGame").GetComponent<InitGameScript>();
     }
 
     // Update is called once per frame
@@ -82,5 +85,16 @@ public class NaveMove : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * desplV * desplSpeed, Space.World);
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //print("Ostia");
+        if(other.gameObject.layer == 6)
+        {
+            //initGameScript.spaceshipSpeed = 0f;
+            //Destroy(gameObject);
+            
+        }
     }
 }
