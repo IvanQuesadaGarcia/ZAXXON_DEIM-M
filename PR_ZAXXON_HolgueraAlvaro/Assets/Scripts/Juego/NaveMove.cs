@@ -96,7 +96,7 @@ public class NaveMove : MonoBehaviour
         if(other.gameObject.layer == 6)
         {
 
-            //initGameScript.SendMessage("Morir");
+            initGameScript.SendMessage("Morir");
             navePrefab.SetActive(false);
             //Destroy(gameObject);
             

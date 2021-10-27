@@ -86,7 +86,7 @@ public class IntanciadorObst : MonoBehaviour
             {
                 randomNum = 0;
             }
-            else if(level > 0 && level < 4 || haSalidoPared == true)
+            else if(level == 1 || haSalidoPared == true)
             {
                 randomNum = Random.Range(0, 2);
             }
