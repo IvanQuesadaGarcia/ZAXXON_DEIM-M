@@ -24,6 +24,7 @@ public class ObstaculoMove : MonoBehaviour
     void Update()
     {
         speed = initGameScript.spaceshipSpeed;
+
         transform.Translate(Vector3.back * Time.deltaTime * speed);
 
         float posZ = transform.position.z;

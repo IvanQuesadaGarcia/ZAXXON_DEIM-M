@@ -93,11 +93,11 @@ public class NaveMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print("Ostia");
-        if(other.gameObject.layer == 6)
+        if(other.gameObject.layer == 6 )
         {
 
-            initGameScript.SendMessage("Morir");
-            navePrefab.SetActive(false);
+            initGameScript.SendMessage("Chocar");
+            //navePrefab.SetActive(false);
             //Destroy(gameObject);
             
         }

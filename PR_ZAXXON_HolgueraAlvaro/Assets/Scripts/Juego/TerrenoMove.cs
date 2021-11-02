@@ -11,8 +11,7 @@ public class TerrenoMove : MonoBehaviour
 
     //Prefab del terreno
     [SerializeField] GameObject terrenoPrefab;
-    //Posición en la que se instanciará (depende de su tamaño)
-    Vector3 instPos = new Vector3(0f, 0f, 200f);
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +29,10 @@ public class TerrenoMove : MonoBehaviour
         //Cuando llego a -100 en Z instancio otro terreno y me destruyo
         if(transform.position.z <= -100)
         {
+            
+            float desfase = -100 - transform.position.z;
+            //Posición en la que se instanciará (depende de su tamaño)
+            Vector3 instPos = new Vector3(0f, 0f, 200f - desfase);
             Instantiate(terrenoPrefab, instPos, Quaternion.identity);
             Destroy(gameObject);
         }
