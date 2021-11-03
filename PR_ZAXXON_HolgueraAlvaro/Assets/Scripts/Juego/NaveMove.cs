@@ -10,8 +10,8 @@ public class NaveMove : MonoBehaviour
     [SerializeField] GameObject navePrefab;
 
     //Variables para la restricción de movimiento (horizontales y verticales)
-    float limiteR = 10;
-    float limiteL = -10;
+    float limiteR = 15;
+    float limiteL = -15;
     float limiteU = 10;
     float limiteS = 1;
 
@@ -37,6 +37,7 @@ public class NaveMove : MonoBehaviour
     void Update()
     {
         //Lamo a la función que mueve la nave
+        
         MoverNave();
 
 
@@ -96,7 +97,7 @@ public class NaveMove : MonoBehaviour
         if(other.gameObject.layer == 6 )
         {
 
-            initGameScript.SendMessage("Chocar");
+            initGameScript.SendMessage("Chocar",other.gameObject);
             //navePrefab.SetActive(false);
             //Destroy(gameObject);
             

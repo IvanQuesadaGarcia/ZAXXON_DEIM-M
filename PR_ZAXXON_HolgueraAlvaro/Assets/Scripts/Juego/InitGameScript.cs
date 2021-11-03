@@ -24,7 +24,7 @@ public class InitGameScript : MonoBehaviour
     [SerializeField] float maxSpeed;
 
     //¿Estoy vivo?
-    bool alive;
+    public bool alive;
 
     //UI
     [SerializeField] Text scoreText;
@@ -39,6 +39,10 @@ public class InitGameScript : MonoBehaviour
         spaceshipSpeed = 35f;
         levelGame = 0;
         energy = 100f;
+
+        maxSpeed = 200f;
+        alive = true;
+
         //Obtengo la escena en la que estoy y si es la de juego pongo el score a 0
         int y = SceneManager.GetActiveScene().buildIndex;
         if(y== 1)
@@ -46,8 +50,7 @@ public class InitGameScript : MonoBehaviour
             score = 0;
         }
         
-        maxSpeed = 100f;
-        alive = true;
+        ;
 
         float tiempoPasado = Time.time;
 
@@ -70,8 +73,11 @@ public class InitGameScript : MonoBehaviour
     {
         float tiempo = Time.time;
         //print(Mathf.Round(tiempo));
-
-        score = Mathf.Round(tiempo) * spaceshipSpeed;
+        if(spaceshipSpeed != 0)
+        {
+            score = Mathf.Round(tiempo) * spaceshipSpeed;
+        }
+        
         scoreText.text = Mathf.Round(score) + " mts.";
         levelText.text = "NIVEL: " + levelGame.ToString();
         if (score > 500 && score < 1000)
@@ -98,18 +104,34 @@ public class InitGameScript : MonoBehaviour
         IntanciadorObst instanciadorObst =  GameObject.Find("InstanciadorObst").GetComponent<IntanciadorObst>();
         instanciadorObst.SendMessage("Parar");
         //Desactivo el Grupo que contiene la nave
-        GameObject.Find("NaveGroup").SetActive(false);
+        GameObject.Find("NaveGrupo").SetActive(false);
 
         //SceneManager.LoadScene(2);
     }
 
-    public void Chocar()
+    public void Chocar(GameObject other)
     {
+        print("Me he chocado con :" + other.tag);
         energy -= 10;
         if(energy <= 0)
         {
             alive = false;
             Morir();
         }
+        else
+        {
+            Destroy(other);
+        }
+    }
+
+    public void Invec()
+    {
+
+        Invoke("PararInvenc", 2f);
+    }
+
+    void PararInvenc()
+    {
+
     }
 }
