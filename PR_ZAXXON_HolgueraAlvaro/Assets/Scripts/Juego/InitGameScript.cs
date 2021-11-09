@@ -31,6 +31,10 @@ public class InitGameScript : MonoBehaviour
     [SerializeField] Text levelText;
     [SerializeField] Text speedText;
     [SerializeField] Slider energySlider;
+    [SerializeField]  Button retryButton;
+    //GameOverCanvas
+    GameObject GameOver;
+    Canvas GameOverCanvas;
 
 
     // Start is called before the first frame update
@@ -42,6 +46,11 @@ public class InitGameScript : MonoBehaviour
 
         maxSpeed = 200f;
         alive = true;
+
+        //Asigno las variables de mi menú GameOver
+        GameOver = GameObject.Find("GameOverCanvas");
+        GameOverCanvas = GameOver.GetComponent<Canvas>();
+        GameOverCanvas.enabled = false;
 
         //Obtengo la escena en la que estoy y si es la de juego pongo el score a 0
         int y = SceneManager.GetActiveScene().buildIndex;
@@ -106,16 +115,27 @@ public class InitGameScript : MonoBehaviour
         //Desactivo el Grupo que contiene la nave
         GameObject.Find("NaveGrupo").SetActive(false);
 
+        Invoke("MostrarGameOver", 2f);
+        
+
         //SceneManager.LoadScene(2);
+    }
+
+    void MostrarGameOver()
+    {
+        //Muestro el menú GameOver
+        GameOverCanvas.enabled = true;
+        //Selecciono el botón de volver
+        
+        retryButton.Select();
     }
 
     public void Chocar(GameObject other)
     {
         print("Me he chocado con :" + other.tag);
-        energy -= 10;
+        energy -= 50;
         if(energy <= 0)
         {
-            alive = false;
             Morir();
         }
         else
