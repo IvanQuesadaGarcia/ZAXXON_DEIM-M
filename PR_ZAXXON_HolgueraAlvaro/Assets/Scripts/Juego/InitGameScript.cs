@@ -15,7 +15,7 @@ public class InitGameScript : MonoBehaviour
     public int levelGame;
 
     //Puntuación
-    static float score;
+    float score;
 
     //Energía
     [SerializeField] float energy;
@@ -36,6 +36,8 @@ public class InitGameScript : MonoBehaviour
     GameObject GameOver;
     Canvas GameOverCanvas;
 
+    float tiempoPasado;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,16 +54,11 @@ public class InitGameScript : MonoBehaviour
         GameOverCanvas = GameOver.GetComponent<Canvas>();
         GameOverCanvas.enabled = false;
 
-        //Obtengo la escena en la que estoy y si es la de juego pongo el score a 0
-        int y = SceneManager.GetActiveScene().buildIndex;
-        if(y== 1)
-        {
-            score = 0;
-        }
-        
-        ;
+        //Pongo la puntuación a cero
+        score = 0;
 
-        float tiempoPasado = Time.time;
+        //Obtengo los segundos que lleva el juego ejecutado
+        tiempoPasado = Time.time;
 
         scoreText.text = score + " mts.";
     }
@@ -80,9 +77,10 @@ public class InitGameScript : MonoBehaviour
 
     void UpdateUI()
     {
-        float tiempo = Time.time;
+        float tiempo = Time.timeSinceLevelLoad;
+        //tiempo -= tiempoPasado;
         //print(Mathf.Round(tiempo));
-        if(spaceshipSpeed != 0)
+        if (spaceshipSpeed != 0)
         {
             score = Mathf.Round(tiempo) * spaceshipSpeed;
         }
@@ -116,6 +114,13 @@ public class InitGameScript : MonoBehaviour
         GameObject.Find("NaveGrupo").SetActive(false);
 
         Invoke("MostrarGameOver", 2f);
+
+        if(score > GameManager.highScore)
+        {
+            GameManager.highScore = score;
+            print("Has superado el HS");
+
+        }
         
 
         //SceneManager.LoadScene(2);
