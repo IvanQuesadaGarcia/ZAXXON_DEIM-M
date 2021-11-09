@@ -22,6 +22,9 @@ public class NaveMove : MonoBehaviour
     //
     InitGameScript initGameScript;
 
+    //Proyectil
+    [SerializeField] GameObject bala;
+    [SerializeField] Transform cannon;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +43,18 @@ public class NaveMove : MonoBehaviour
         
         MoverNave();
 
-
-        
         float rot = Input.GetAxis("Horizontal-J2"); //He creado un eje nuevo para la rotación
         //print(rot);
         transform.Rotate(Vector3.back * Time.deltaTime * rot * 100f);
 
+        
+
+    }
+
+    public void Disparar()
+    {
+        print("disparo");
+        Instantiate(bala, cannon.position, Quaternion.identity);
     }
 
     void MoverNave()
