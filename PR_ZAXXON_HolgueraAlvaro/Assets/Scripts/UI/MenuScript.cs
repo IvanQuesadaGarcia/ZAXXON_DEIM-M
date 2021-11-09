@@ -7,18 +7,9 @@ public class MenuScript : MonoBehaviour
 {
 
 
-    public void IniciarJuego()
+    public void CargarEscena(int escena)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(escena);
     }
 
-    public void IniciarHS()
-    {
-        SceneManager.LoadScene(2);
-    }
-
-    public void IniciarConfig()
-    {
-        SceneManager.LoadScene(3);
-    }
 }
