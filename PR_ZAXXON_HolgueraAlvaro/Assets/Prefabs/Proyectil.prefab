@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 186088432618299593}
   - component: {fileID: 4286916678331102523}
   - component: {fileID: 2373668936689240183}
+  - component: {fileID: 2474335183367562575}
   m_Layer: 0
   m_Name: Proyectil
   m_TagString: Untagged
@@ -62,6 +63,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!135 &2474335183367562575
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231579779455062522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.13
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4458905751251385263
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 4458905751251385263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.1630563, y: 0.1630563, z: 0.1630563}
   m_Children: []
   m_Father: {fileID: 186088432618299593}
   m_RootOrder: 0
@@ -153,7 +167,7 @@ SphereCollider:
   m_GameObject: {fileID: 4458905751251385263}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

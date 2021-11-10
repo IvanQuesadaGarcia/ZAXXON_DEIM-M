@@ -9,7 +9,7 @@ public class BalaMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        balistica = 5f;
+        balistica = 55f;
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class BalaMove : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * balistica);
         float posz = transform.position.z;
-        if(posz >= 50f)
+        if(posz >= 120f)
         {
             Destroy(gameObject);
         }
@@ -28,6 +28,8 @@ public class BalaMove : MonoBehaviour
         if(other.gameObject.layer == 6)
         {
             Destroy(other.gameObject);
+            //Destruyo también la bala
+            Destroy(gameObject);
         }
     }
 }

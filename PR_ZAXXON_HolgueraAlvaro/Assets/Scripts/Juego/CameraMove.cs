@@ -12,12 +12,14 @@ public class CameraMove : MonoBehaviour
     InitGameScript initGameScript;
 
     float distZ;
+    float distY;
 
 
     // Start is called before the first frame update
     void Start()
     {
         distZ = 10f;
+        distY = 1.5f;
         initGameScript = GameObject.Find("InitGame").GetComponent<InitGameScript>();
 
     }
@@ -29,11 +31,11 @@ public class CameraMove : MonoBehaviour
         {
             //Con este código, conseguimos que siga al objeto pero con suavidad
             //La velocidad de suavizado, cuanto menor sea más brusco será el movimiento
-            Vector3 targetPosition = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.transform.position.z - distZ);
+            Vector3 targetPosition = new Vector3(playerPosition.position.x, playerPosition.position.y + distY, playerPosition.transform.position.z - distZ);
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref camaraVelocity, smoothVelocity);
 
             //Opcional: que la cámara mire al objeto (la cámara no puede ser ortográfica)
-            //transform.LookAt(playerPosition);
+            transform.LookAt(playerPosition);
         }
 
     }
